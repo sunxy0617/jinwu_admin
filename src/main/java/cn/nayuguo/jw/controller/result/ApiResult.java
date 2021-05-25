@@ -14,7 +14,7 @@ public class ApiResult<T> {
     @Value("200")
     private Integer code;
 
-    private String message;
+    private String msg;
 
     private T data;
 
@@ -24,13 +24,13 @@ public class ApiResult<T> {
     public ApiResult(T data){
         this(true,200,"success",data);
     }
-    public ApiResult(boolean state, Integer code, String message){
-        this(state,code,message,null);
+    public ApiResult(boolean state, Integer code, String msg){
+        this(state,code, msg,null);
     }
-    public ApiResult(boolean state, Integer code, String message, T data){
+    public ApiResult(boolean state, Integer code, String msg, T data){
         this.state = state;
         this.code = code;
-        this.message = message;
+        this.msg = msg;
         this.data=data;
     }
 }

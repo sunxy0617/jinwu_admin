@@ -1,5 +1,6 @@
 package cn.nayuguo.jw.token;
 
+import cn.nayuguo.jw.common.exception.HttpException;
 import cn.nayuguo.jw.model.UserIdentify;
 import cn.nayuguo.jw.service.UserIdentifyService;
 import com.auth0.jwt.JWT;
@@ -34,18 +35,18 @@ public class TokenUtil {
         try {
             userId = JWT.decode(token).getAudience().get(0);
         } catch (JWTDecodeException j) {
-            throw new RuntimeException("token无效");
+            throw new HttpException(10101,"token无效");
         }
         UserIdentify userIdentify = userIdentifyService.getById(userId);
         if (userIdentify == null) {
-            throw new RuntimeException("用户不存在，请重新登录");
+            throw new HttpException(10102,"用户不存在，请重新登录");
         }
         // 验证 token
         JWTVerifier jwtVerifier = JWT.require(Algorithm.HMAC256(userIdentify.getPassword())).build();
         try {
             jwtVerifier.verify(token);
         } catch (JWTVerificationException e) {
-            throw new RuntimeException("token无效，请重新登录");
+            throw new HttpException(10103,"token无效，请重新登录");
         }
         return true;
     }

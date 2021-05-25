@@ -1,5 +1,6 @@
 package cn.nayuguo.jw.token.interceptor;
 
+import cn.nayuguo.jw.common.exception.HttpException;
 import cn.nayuguo.jw.controller.result.ApiResult;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -11,8 +12,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @ControllerAdvice
 public class GlobalExceptionHandler {
     @ResponseBody
+    @ExceptionHandler(HttpException.class)
+    public ApiResult<String> handleException(HttpException e){
+
+        return  new ApiResult<>(false, e.getCode(), e.getMsg(),e.getMessage());
+    }
+
+    @ResponseBody
     @ExceptionHandler(Exception.class)
-    public ApiResult<Object> handleException(Exception e){
-        return  new ApiResult<>(false, 401, e.getMessage());
+    public ApiResult<String> handleException(Exception e){
+
+        return  new ApiResult<>(false, 401, e.getMessage(),e.getMessage());
     }
 }

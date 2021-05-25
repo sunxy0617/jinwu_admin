@@ -16,4 +16,13 @@
         id,user_id,password,
         create_time,update_time
     </sql>
+    <select id="selectCountByUserId" resultType="java.lang.Integer">
+        select count(*)
+        from jw_user_identify
+        <where>
+            <if test="userId != null and userId != ''">
+                user_id = #{userId,jdbcType=VARCHAR}
+            </if>
+        </where>
+    </select>
 </mapper>
