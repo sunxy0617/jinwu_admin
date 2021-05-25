@@ -1,12 +1,11 @@
 package cn.nayuguo.jw.model;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
+import lombok.Builder;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
@@ -18,6 +17,7 @@ import javax.validation.constraints.NotBlank;
  */
 @TableName(value ="jw_user_identify")
 @Data
+@Builder
 public class UserIdentify implements Serializable {
     /**
      * 
@@ -40,13 +40,13 @@ public class UserIdentify implements Serializable {
     /**
      * 
      */
-    @TableField(value = "create_time")
+    @TableField(value = "create_time",fill = FieldFill.INSERT)
     private LocalDateTime createTime;
 
     /**
      * 
      */
-    @TableField(value = "update_time")
+    @TableField(value = "update_time",fill=FieldFill.INSERT_UPDATE)
     private LocalDateTime updateTime;
 
     @TableField(exist = false)
