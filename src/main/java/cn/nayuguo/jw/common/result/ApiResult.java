@@ -1,4 +1,4 @@
-package cn.nayuguo.jw.controller.result;
+package cn.nayuguo.jw.common.result;
 
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;

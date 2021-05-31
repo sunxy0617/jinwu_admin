@@ -1,7 +1,7 @@
 package cn.nayuguo.jw.token.interceptor;
 
 import cn.nayuguo.jw.common.exception.HttpException;
-import cn.nayuguo.jw.controller.result.ApiResult;
+import cn.nayuguo.jw.common.result.ApiResult;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;

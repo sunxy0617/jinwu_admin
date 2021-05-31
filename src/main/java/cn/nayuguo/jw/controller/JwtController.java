@@ -1,6 +1,6 @@
 package cn.nayuguo.jw.controller;
 
-import cn.nayuguo.jw.controller.result.ApiResult;
+import cn.nayuguo.jw.common.result.ApiResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 

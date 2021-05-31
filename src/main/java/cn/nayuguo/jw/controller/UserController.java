@@ -1,10 +1,9 @@
 package cn.nayuguo.jw.controller;
 
 import cn.nayuguo.jw.common.util.LocalUser;
-import cn.nayuguo.jw.controller.result.ApiResult;
+import cn.nayuguo.jw.common.result.ApiResult;
 import cn.nayuguo.jw.dto.user.UserIdentifyDto;
 import cn.nayuguo.jw.model.UserIdentify;
-import cn.nayuguo.jw.model.UserInfo;
 import cn.nayuguo.jw.service.UserIdentifyService;
 import cn.nayuguo.jw.token.annotation.RequireLogin;
 import org.springframework.beans.factory.annotation.Autowired;
